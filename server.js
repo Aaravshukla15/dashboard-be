@@ -6,15 +6,13 @@ const path = require("path");
 const app = express();
 const port = 5000;
 
-// app.use(cors());
-
-const corsOptions = {
-  origin: "https://ransom-db-git-main-aaravshukla15s-projects.vercel.app/",
-  methods: ["GET", "POST"],
-  credentials: true,
-};
-
-app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: "https://ransom-db.vercel.app/",
+    methods: ["GET", "POST"],
+    credentials: true,
+  })
+);
 
 app.get("/api/ransomwareData", (req, res) => {
   const filePath = path.join(__dirname, "data", "ransomwareData.json");
