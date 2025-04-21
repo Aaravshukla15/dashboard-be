@@ -6,8 +6,10 @@ const path = require("path");
 const app = express();
 const port = 5000;
 
+// app.use(cors());
+
 const corsOptions = {
-  origin: "https://ransom-ofqkfysuj-aaravshukla15s-projects.vercel.app",
+  origin: "https://ransom-db-git-main-aaravshukla15s-projects.vercel.app/",
   methods: ["GET", "POST"],
   credentials: true,
 };
