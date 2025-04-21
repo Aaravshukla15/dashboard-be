@@ -7,15 +7,14 @@ const app = express();
 const port = 5000;
 
 const corsOptions = {
-  origin: "https://ransom-ofqkfysuj-aaravshukla15s-projects.vercel.app", // Remove the trailing slash
+  origin: "https://ransom-ofqkfysuj-aaravshukla15s-projects.vercel.app",
+  methods: ["GET", "POST"],
+  credentials: true,
 };
 
-// Apply CORS middleware with options
 app.use(cors(corsOptions));
 
-// Serve JSON data from the correct location
 app.get("/api/ransomwareData", (req, res) => {
-  // Update the path to reflect the correct location of the JSON file
   const filePath = path.join(__dirname, "data", "ransomwareData.json");
 
   fs.readFile(filePath, "utf8", (err, data) => {
