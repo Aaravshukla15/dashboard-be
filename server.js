@@ -6,7 +6,12 @@ const path = require("path");
 const app = express();
 const port = 5000;
 
-app.use(cors());
+const corsOptions = {
+  origin: "https://ransom-ofqkfysuj-aaravshukla15s-projects.vercel.app", // Remove the trailing slash
+};
+
+// Apply CORS middleware with options
+app.use(cors(corsOptions));
 
 // Serve JSON data from the correct location
 app.get("/api/ransomwareData", (req, res) => {
